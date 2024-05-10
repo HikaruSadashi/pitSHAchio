@@ -2,7 +2,7 @@
 
 ## Introduction
 
-PitSHAchio is a distributed password cracking program designed to brute force password hashes using a distributed computing approach. The project utilizes a main client written in full-stack JavaScript to provide a user-friendly web-based UI, communicating with a server built in **Go** via IPC sockets. The server, in turn, interacts with compute clients also built in **Go** using TCP sockets. This README provides an overview of the project's goals, approach, and framework.
+PitSHAchio is a distributed password cracking program designed to brute force password hashes using a distributed computing approach. The project utilizes a main client written in full-stack JavaScript to provide a user-friendly web-based UI, communicating with a server built in C++ via IPC sockets. The server, in turn, interacts with compute clients also built in C++ using TCP sockets. This README provides an overview of the project's goals, approach, and framework.
 
 ## Goal
 
@@ -31,15 +31,15 @@ npm run start & disown
 2. Start the compute server using the provided C++ executable.
 ```bash
 cd ../computeserver
-go run main.go & disown
+./ComputeServer & disown
 ```
 3. Make sure there is at least one compute client
 ```bash
 cd  ../computeclient
-go run main.go
+./Client
 ```
   - if you are running the client on a different device, please provide the IP address of the server
-  - `.go run client.go 1.2.3.4`
+  - `./Client 1.2.3.4`
 4. Access the web-based UI provided by the webserver at port 3000
 5. Enter a hash to be reversed, or use the passworder converter to get a hash first.
 6. View the results and potential password match provided by the server.
@@ -51,9 +51,8 @@ go run main.go
   - js-sha256
   - net
   - react
-- Go
-  - crypto/sha256
-  - encoding/hex
+- g++
+  - openssl
 
 
 
