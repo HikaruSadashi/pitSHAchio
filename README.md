@@ -17,8 +17,8 @@ The primary goal of PitSHAchio is to crack password hashes efficiently through d
 ## Framework
 
 1. Main Client: Full-stack JavaScript providing a web-based UI for user interaction.
-2. Server: Built in C++, handling communication with the main client and compute clients via IPC and TCP sockets, respectively.
-3. Compute Clients: Also built in C++, tasked with computing portions of the password space and testing against the hash.
+2. Server: Built in Go, handling communication with the main client and compute clients via IPC and TCP sockets, respectively.
+3. Compute Clients: Also built in Go, tasked with computing portions of the password space and testing against the hash.
 
 ## Usage
 
@@ -28,7 +28,7 @@ cd webserver
 npm run build
 npm run start & disown
 ```
-2. Start the compute server using the provided C++ executable.
+2. Start the compute server using the provided Go file.
 ```bash
 cd ../computeserver
 go run main.go & disown
